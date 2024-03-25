@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <script>
+      (function flexible (window, document) {
+        var docEl = document.documentElement
+        // set 1rem = viewWidth / 10
+        function setRemUnit () {
+          // // 限制最大缩放到750px，仅针对转换成rem单位有效
+          // var rem = Math.min(docEl.clientWidth, 750) / 10
+          // docEl.style.fontSize = rem + 'px'
+          let rem = ''
+          // 限制最大缩放到768px，仅针对转换成rem单位有效
+          const clientWidth = docEl.clientWidth > 1920 ? 1920 : docEl.clientWidth
+          if (clientWidth > 768) {
+            rem = clientWidth / 1920 * 41.4
+          } else {
+            rem = clientWidth / 10
+           }
+          docEl.style.fontSize = rem + 'px'
+        }
+        setRemUnit()
+        // reset rem unit on page resize
+        window.addEventListener('resize', setRemUnit)
+        window.addEventListener('pageshow', function (e) {
+          if (e.persisted) {
+            setRemUnit()
+          }
+        })
+      }(window, document))
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

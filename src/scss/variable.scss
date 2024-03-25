@@ -1,0 +1,71 @@
+@mixin max768() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin min768() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+// 渐变文字
+@mixin gradientText() {
+  font-family: Barlow;
+  font-weight: bold;
+  background: linear-gradient(
+    to right,
+    #000dc3 0%,
+    #b758d9 15%,
+    #ef9961 40%,
+    #ef9961 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Chrome, Safari */
+  color: transparent; /* 标准语法, 也可以用于其他浏览器 */
+}
+
+// 渐变按钮
+@mixin gradientBtn() {
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(
+    210deg,
+    #8d74f7 0%,
+    #b758d9 40%,
+    #ef9961 70%,
+    #ef9961 100%
+  );
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// 卡片渐变边框
+@mixin cardBorder() {
+  background: linear-gradient(
+    135deg,
+    #3411f4 0%,
+    #3411f4 10%,
+    #131415 90%,
+    #131415 100%
+  );
+  --bg: linear-gradient(
+    135deg,
+    #3411f4 0%,
+    #3411f4 10%,
+    #131415 90%,
+    #131415 100%
+  );
+  --border: linear-gradient(
+    132deg,
+    rgba(255, 255, 255, 0.59),
+    rgba(151, 151, 151, 0)
+  );
+  border: 1px solid transparent;
+  /* var(--bg)背景色  var(--border)边框色 */
+  background-image: var(--bg), var(--border);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}

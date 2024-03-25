@@ -1,0 +1,26 @@
+<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><link rel="icon" href="/favicon.ico"><title>chain-quill</title><script>(function flexible (window, document) {
+        var docEl = document.documentElement
+        // set 1rem = viewWidth / 10
+        function setRemUnit () {
+          // // 限制最大缩放到750px，仅针对转换成rem单位有效
+          // var rem = Math.min(docEl.clientWidth, 750) / 10
+          // docEl.style.fontSize = rem + 'px'
+          let rem = ''
+          // 限制最大缩放到768px，仅针对转换成rem单位有效
+          const clientWidth = docEl.clientWidth > 1920 ? 1920 : docEl.clientWidth
+          if (clientWidth > 768) {
+            rem = clientWidth / 1920 * 41.4
+          } else {
+            rem = clientWidth / 10
+           }
+          docEl.style.fontSize = rem + 'px'
+        }
+        setRemUnit()
+        // reset rem unit on page resize
+        window.addEventListener('resize', setRemUnit)
+        window.addEventListener('pageshow', function (e) {
+          if (e.persisted) {
+            setRemUnit()
+          }
+        })
+      }(window, document))</script><script defer="defer" src="/js/chunk-vendors.aede5eb0.js"></script><script defer="defer" src="/js/app.5883d944.js"></script><link href="/css/chunk-vendors.f8551cad.css" rel="stylesheet"><link href="/css/app.5f0174ab.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but chain-quill doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
