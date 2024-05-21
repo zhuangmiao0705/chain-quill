@@ -3,7 +3,8 @@ import QS from "querystring";
 import { Message } from "element-ui";
 import { code as resCode } from "./contanst/resCode";
 
-Axios.defaults.baseURL = process.env.VUE_APP_BASE_API;
+Axios.defaults.baseURL = "/dev-api";
+console.log(process.env.VUE_APP_BASE_API);
 
 Axios.defaults.withCredentials = true;
 Axios.defaults.headers = {
