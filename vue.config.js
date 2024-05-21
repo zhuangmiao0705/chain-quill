@@ -6,7 +6,8 @@ module.exports = defineConfig({
     proxy: {
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       ["/dev-api"]: {
-        target: "http://120.46.62.110:8081",
+        // target: "http://120.46.62.110:8081",
+        target: "http://121.40.62.110:8081",
         changeOrigin: true,
         pathRewrite: {
           ["^/dev-api"]: "/",
